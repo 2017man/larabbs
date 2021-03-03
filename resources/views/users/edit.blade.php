@@ -17,6 +17,8 @@
                     <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        {{--错误消息提示--}}
+                        @include('shared._error')
 
                         <div class="form-group">
                             <label for="name-field">用户名</label>
