@@ -2,7 +2,8 @@
 
 namespace App\Handlers;
 
-use  Illuminate\Support\Str;
+use Image;
+use Str;
 
 /**
  * 图片上传
