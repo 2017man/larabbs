@@ -15,6 +15,9 @@ class TopicObserver
      */
     public function saving(Topic $topic)
     {
+        //防xss攻击，过滤非法标签
+        $topic->body = clean($topic->body, 'user_topic_body');
+        //生成文章的excerpt摘要，用于SEO
         $topic->excerpt = make_excerpt($topic->body);
     }
 }
