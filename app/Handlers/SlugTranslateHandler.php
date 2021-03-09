@@ -32,6 +32,7 @@ class SlugTranslateHandler
             return $this->pinyin($text);
         }
         $sign = $this->buildSign($appid, $text, $salt, $key);
+        
         // 构建请求参数
         $query = http_build_query([
             "q"     => $text,
