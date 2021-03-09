@@ -40,7 +40,7 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 
 //话题
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
-Route::get('topics/{topic}/{slug?}')->name('topics.show');//话题展示，为了兼容SEO形式的url
+Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');//话题展示，为了兼容SEO形式的url
 
 //分类
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
