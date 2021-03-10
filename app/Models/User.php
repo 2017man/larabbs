@@ -50,6 +50,14 @@ class User extends Authenticatable implements MustVerifyEmailContract
     }
 
     /**
+     * 多个回复人
+     */
+    public function Replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+    /**
      * 授权通用处理
      * @param $model
      * @return bool

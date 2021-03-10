@@ -22,6 +22,14 @@ class Topic extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * 话题回复
+     */
+    public function Replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function scopeWithOrder($query, $order = 'default')
     {
         switch ($order) {
