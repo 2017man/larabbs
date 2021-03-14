@@ -38,6 +38,13 @@
                             <i class="fa fa-plus"></i>
                         </a>
                     </li>
+                    {{--通知中心--}}
+                    <li class="nav-item notification-badge">
+                        <a class="nav-link mr-3 badge badge-pill badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'secondary' }} text-white"
+                           href="{{ route('notifications.index',Auth::User()->id) }}">
+                            {{ Auth::user()->notification_count }}
+                        </a>
+                    </li>
                     {{--用户中心--}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
