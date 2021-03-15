@@ -25,7 +25,7 @@ class Topic extends Model
     /**
      * 话题回复
      */
-    public function Replies()
+    public function replies()
     {
         return $this->hasMany(Reply::class);
     }
