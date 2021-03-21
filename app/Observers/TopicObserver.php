@@ -34,4 +34,13 @@ class TopicObserver
             dispatch(new TranslateSlug($topic));
         }
     }
+
+    /**
+     * 删除话题的同时删除回复
+     * @param Topic $topic
+     */
+    public function deleted(Topic $topic)
+    {
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
+    }
 }
