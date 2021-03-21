@@ -13,6 +13,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
 {
     use HasFactory, MustVerifyEmailTrait;
 
+    /**
+     * 重写消息通知
+     */
     use Notifiable {
         notify as protected laravelNotify;
     }
@@ -89,5 +92,15 @@ class User extends Authenticatable implements MustVerifyEmailContract
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
+    }
+
+    /**
+     * 标记为已读，清除未读数据
+     */
+    public function markAsRead()
+    {
+        $this->notification_count = 0;
+        $this->save();
+        $this->unreadNotifications->markAsRead();
     }
 }
