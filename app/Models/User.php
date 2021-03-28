@@ -26,6 +26,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
     }
 
     /**
+     * 用户最后活跃时间
+     */
+    use Traits\LastActivedAtHelper;
+
+    /**
      * 发送消息通知
      * @param $instance
      */
