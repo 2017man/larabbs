@@ -66,9 +66,7 @@ trait LastActivedAtHelper
      */
     public function syncUserActivedAt()
     {
-        // 获取昨天的日期，格式如：2017-10-21
-        $yesterday_date = Carbon::yesterday()->toDateString();
-
+        
         // Redis 哈希表的命名，如：larabbs_last_actived_at_2017-10-21
         $hash = $this->getHashFromDateString(Carbon::yesterday()->toDateString());
 
