@@ -51,3 +51,5 @@ Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 //通知列表
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+//无权限登录跳转路径
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
