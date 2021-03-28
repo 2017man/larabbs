@@ -16,10 +16,13 @@ class ReplyObserver
     public function created(Reply $reply)
     {
         //$reply->topic->increment('reply_count', 1);
-        //最佳实践
-        $reply->topic->updateReplyCount();
-        // 通知话题作者有新的评论
-        $reply->topic->user->notify(new TopicReplied($reply));
+        // 命令行运行迁移时不做这些操作！
+        if (!app()->runningInConsole()) {
+            //最佳实践
+            $reply->topic->updateReplyCount();
+            // 通知话题作者有新的评论
+            $reply->topic->user->notify(new TopicReplied($reply));
+        }
     }
 
     /**
