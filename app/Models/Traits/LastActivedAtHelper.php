@@ -66,7 +66,7 @@ trait LastActivedAtHelper
      */
     public function syncUserActivedAt()
     {
-        
+
         // Redis 哈希表的命名，如：larabbs_last_actived_at_2017-10-21
         $hash = $this->getHashFromDateString(Carbon::yesterday()->toDateString());
 
